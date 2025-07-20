@@ -1,12 +1,10 @@
 # This workflow will build a .NET project
 
-name: pipeline
+name: pr check
 
 on:
-  push: 
-   branches: [ "main" ]
-
-  workflow_dispatch:
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
