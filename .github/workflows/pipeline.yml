@@ -4,9 +4,9 @@ name: pipeline
 
 on:
   push: 
-   branches: ["main"]
+   branches: [ "main" ]
   pull_request:
-    branches: ["main"]
+    branches: [ "main" ]
 
   workflow_dispatch:
 
@@ -31,7 +31,7 @@ jobs:
       run: dotnet build --configuration Release --no-restore
 
     - name: Dotnet format
-      run: dotnet format --check --verbosity detailed 
+      run: dotnet format --verbosity detailed -verify-no-changes 
 
     - name: Dotnet test
       run: dotnet test --configuration Release --no-build --verbosity detailed
