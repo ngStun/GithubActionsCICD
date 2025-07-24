@@ -19,9 +19,9 @@ on:
         required: true
 jobs:
   deploy_dev:
-    name: Deploy to ${{ inputs.env }}}}
+    name: Deploy to ${{ inputs.env }}
     runs-on: ubuntu-latest
-    environment: ${{ inputs.env }}}}
+    environment: ${{ inputs.env }}
 
     steps:
       - name: Download artifact
