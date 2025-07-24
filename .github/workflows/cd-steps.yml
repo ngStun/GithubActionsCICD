@@ -37,8 +37,8 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Deploy to dev
+      - name: Deploy to ${{ inputs.environment }}
         uses: azure/webapps-deploy@v2
         with: 
           app-name: ${{ secrets.AZURE_WEBAPP_NAME }} 
-          package: artifacts2/
+          package: artifacts/
