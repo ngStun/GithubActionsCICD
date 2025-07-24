@@ -6,6 +6,8 @@ on:
   push: 
    branches: [ "main" ]
 
+  workflow_dispatch:
+
 permissions:
   id-token: write
   contents: read
@@ -50,7 +52,7 @@ jobs:
     needs: build
     uses: ./.github/workflows/cd-steps.yml
     with: 
-      environment: dev
+      env: dev
     secrets: inherit
 
   deploy_prod:
@@ -58,5 +60,5 @@ jobs:
     needs: deploy_dev
     uses: ./.github/workflows/cd-steps.yml
     with:
-      environment: prod
+      env: prod
     secrets: inherit
