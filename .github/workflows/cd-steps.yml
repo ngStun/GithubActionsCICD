@@ -5,7 +5,7 @@ name: Continuous Deployment Steps
 on:
   workflow_call:
     inputs:
-      environment:
+      env:
         required: true
         type: string
     secrets:
@@ -19,9 +19,9 @@ on:
         required: true
 jobs:
   deploy_dev:
-    name: Deploy to ${{ inputs.environment }}}}
+    name: Deploy to ${{ inputs.env }}}}
     runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}}}
+    environment: ${{ inputs.env }}}}
 
     steps:
       - name: Download artifact
@@ -37,7 +37,7 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Deploy to ${{ inputs.environment }}
+      - name: Deploy to ${{ inputs.env }}
         uses: azure/webapps-deploy@v2
         with: 
           app-name: ${{ secrets.AZURE_WEBAPP_NAME }} 
