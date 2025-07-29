@@ -47,5 +47,5 @@ jobs:
           package: artifacts/
 
       - name: Swap slots
-        run: | 
-            az webapp deployment slot swap --resource-group ${{ secrets.AZURE_RESOURCEGROUP_NAME) }} --name ${{ secrets.AZURE_WEBAPP_NAME }} --slot deployment-slot --target-slot production --verbose
+       run: |
+         az webapp deployment slot swap --resource-group ${{ secrets.AZURE_RESOURCEGROUP_NAME }} --name ${{ secrets.AZURE_WEBAPP_NAME }} --slot deployment-slot --target-slot production --verbose
